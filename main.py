@@ -8,11 +8,11 @@ import os
 import subprocess
 import passman
 
-db = ActiveAlchemy("mysql+pymysql://{}:{}@{}:{}/{}".format(config.db_username, config.db_password, config.db_endpoint, config.dc_port, config.db_name))
+#db = ActiveAlchemy("mysql+pymysql://{}:{}@{}:{}/{}".format(config.db_username, config.db_password, config.db_endpoint, config.dc_port, config.db_name))
 
-class Site(db.Model):
-    site_name = db.Column(db.String(25))
-    password = db.Column(db.String(25))
+#class Site(db.Model):
+#    site_name = db.Column(db.String(25))
+#    password = db.Column(db.String(25))
 
 
 #db.create_all()
@@ -23,7 +23,6 @@ class Site(db.Model):
 #for site in Site.query():
 #    print(site.site_name)
 #    print(site.password)
-'''
 os.system('clear')
 
 while True:
@@ -34,11 +33,11 @@ while True:
 
     if choice == options[0]:
         print("getting your password...")
-        print("your password is: ", passman.get_password(pass_dict))
+        print("your password is: ", passman.get_password())
     elif choice == options[1]:
         print("adding a new password...")
-        passman.add_password(pass_dict)
-        passman.save_new_passwords(pass_dict)
+        passman.add_password()
+        #passman.save_new_passwords(pass_dict)
     elif choice == options[2]:
         print("getting password...")
         print("your password is: ", passman.get_password_menu(pass_dict))
@@ -63,4 +62,3 @@ while True:
         os.system('clear')
     else:
         quit()
-'''
